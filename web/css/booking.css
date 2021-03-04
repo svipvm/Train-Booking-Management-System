@@ -1,0 +1,45 @@
+body {
+    height: 96%;
+    width: 100%;
+    overflow: hidden;
+    /*background-color: blue;*/
+}
+
+#select-box {
+    width: 98.5%;
+    height: 9%;
+    border: 1px solid dodgerblue;
+}
+#select-ui {
+    width: 99%;
+    /*height: 2%;*/
+    list-style: none;
+    /*text-align: center;*/
+
+}
+#select-ui li {
+    margin: 0 6%;
+    float: left;
+}
+
+#result-box {
+    width: 98.5%;
+    height: 89%;
+    /*margin-top: 1%;*/
+    overflow: auto;
+    /*background-color: #1E90FF;*/
+    border: 1px solid dodgerblue;
+}
+#result-table {
+    margin-left: 1%;
+    width: 98%;
+    /*height: 88%;*/
+}
+#result-table tr {
+    height: 20%;
+}
+#result-table td {
+    /*height: 10%;*/
+    text-align: center;
+    border: 1px solid black;
+}

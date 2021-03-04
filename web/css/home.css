@@ -1,0 +1,71 @@
+body {
+    height: 96%;
+    width: 100%;
+    overflow: hidden;
+    /*background-color: blue;*/
+}
+
+#banner {
+    overflow: hidden;
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*float: left;*/
+    border: 1px solid black;
+}
+#banner > img {
+    width: 100%;
+    height: 100%;
+}
+/*#banner > img:not(:first-child) {*/
+/*    display:none;*/
+/*}*/
+
+#main-box {
+    width: 40%;
+    height: 60%;
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    border-radius: 5px;
+    overflow: hidden;
+    opacity: 0.9;
+    background-color: white;
+}
+#main-box table {
+    width: 90%;
+    height: 75%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black;
+}
+#main-box table td {
+    border: 1px solid black;
+}
+.home-sel {
+    font-size: 18px;
+    width: 90%;
+    height: 80%;
+}
+#fun-submit {
+    height: 60%;
+    width: 20%;
+    /*border-width: 0;*/
+    border-radius: 3px;
+    background: #1E90FF;
+    cursor: pointer;
+    font-family: Microsoft YaHei, serif;
+    color: white;
+    font-size: 16px;
+}
+
+#icon-set {
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    left: 0;
+    top: 80%;
+    background-color: dodgerblue;
+}
