@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -22,6 +23,8 @@ public class QueryTrainServlet extends HttpServlet {
         String dateStr = request.getParameter("date-sel");
 //        System.out.println(beingPos + endPos + dateStr);
 
+        HttpSession session = request.getSession();
+
         request.setAttribute("begin-pos", beingPos);
         request.setAttribute("end-pos", endPos);
         request.setAttribute("date-sel", dateStr);
@@ -31,7 +34,7 @@ public class QueryTrainServlet extends HttpServlet {
         List<Train> trains = userService.findAllByDemand(beingPos, endPos, dateStr);
         userService.close();
 
-        request.setAttribute("trains", trains);
+        session.setAttribute("trains", trains);
 
         request.getRequestDispatcher("/content/booking.jsp").forward(request, response);
     }

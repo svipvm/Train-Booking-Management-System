@@ -31,7 +31,7 @@
         <a href="content/booking.jsp" target="frame-content"><h2>车票</h2></a>
       </div>
       <div class="menu inform">
-        <a href="content/message.jsp" target="frame-content"><h2>信息</h2></a>
+        <a href="content/StateChangeServlet" target="frame-content"><h2>信息</h2></a>
       </div>
       <div id="index-content">
         <iframe name="frame-content" src="content/home.jsp"></iframe>

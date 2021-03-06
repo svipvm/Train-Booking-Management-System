@@ -1,0 +1,21 @@
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#user-login {
+    height: 50%;
+    width: 40%;
+    margin: 10% auto;
+    border: 1px solid dodgerblue;
+}
+#user-login-table {
+    margin: 4% auto;
+    width: 80%;
+    height: 60%;
+}
+#user-login-table td {
+    text-align: center;
+    border: 1px solid dodgerblue;
+}

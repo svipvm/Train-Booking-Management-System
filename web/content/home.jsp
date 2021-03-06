@@ -64,7 +64,7 @@
           <td><input type="date" class="home-sel date-sel" name="date-sel" value="<%=dateStr%>"></td>
         </tr>
         <tr>
-          <td colspan="2"><input type="submit" id="fun-submit"></td>
+          <td colspan="2"><input type="submit" id="fun-submit" value="查询"></td>
         </tr>
       </table>
     </form>

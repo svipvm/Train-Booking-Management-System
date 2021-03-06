@@ -1,0 +1,72 @@
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+#user-box {
+    margin-top: 10%;
+    margin-left: 7%;
+    width: 25%;
+    height: 50%;
+    border: 1px solid dodgerblue;
+    overflow: hidden;
+}
+#user-image img {
+    height: 75px;
+    width: 75px;
+}
+#user-image {
+    height: 75px;
+    width: 75px;
+    margin: 2% auto;
+    border: 1px solid dodgerblue;
+}
+#user-inform {
+    /*position: relative;*/
+    /*top: 10%;*/
+    width: 100%;
+    height: 68%;
+    margin: 1% auto;
+}
+#user-inform table {
+    width: 100%;
+    height: 100%;
+}
+#user-inform table td {
+    text-align: center;
+    border: 1px solid dodgerblue;
+}
+
+#user-train-now {
+    position: absolute;
+    left: 40%;
+    top: 5%;
+    width: 55%;
+    height: 42%;
+    border: 1px solid dodgerblue;
+    overflow: auto;
+}
+#user-train-now table {
+    width: 100%;
+    /*height: 100%;*/
+}
+#user-train-now table tr {
+    height: 20%;
+}
+#user-train-last {
+    position: absolute;
+    left: 40%;
+    top: 53%;
+    width: 55%;
+    height: 42%;
+    border: 1px solid dodgerblue;
+    overflow: auto;
+}
+#user-train-last table {
+    width: 100%;
+    /*height: 100%;*/
+}
+#user-train-last table tr {
+    height: 20%;
+}
