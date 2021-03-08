@@ -1,6 +1,9 @@
 <%@ page import="com.demo.service.UserService" %>
 <%@ page import="com.demo.ov.User" %>
-<%@ page import="java.text.SimpleDateFormat" %><%--
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="com.demo.ov.Train" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.demo.ov.Book" %><%--
   Created by IntelliJ IDEA.
   User: SvipVM
   Date: 2021/3/4
@@ -12,9 +15,11 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link type="text/css" rel="stylesheet" href="../css/message.css">
+  <script type="text/javascript" src="../js/bt_jump.js"></script>
   <title>Message</title>
 </head>
 <body>
+  <jsp:include page="/content/LoadInformServlet"></jsp:include>
   <div id="user-box">
     <% User user = (User) session.getAttribute("user"); %>
     <div id="user-image"><img src="../images/image.png"></div>
@@ -47,16 +52,43 @@
   <div id="user-train-now">
     <p>未来行程</p><hr>
     <table>
+      <% List<Train> trainsNow = (List<Train>) request.getAttribute("ticket-now"); %>
+      <% List<Book> booksNow = (List<Book>) request.getAttribute("book-now"); %>
       <tr>
         <th>车次</th>
         <th>出发站</th>
         <th>出发时间</th>
         <th>到达时间</th>
         <th>到达站</th>
+        <th>坐席</th>
+        <th>操作</th>
       </tr>
+      <% if (trainsNow != null) { %>
+        <% for(int i = 0; i < trainsNow.size(); i++) { %>
+          <% Train train = trainsNow.get(i); %>
+          <% Book book = booksNow.get(i); %>
+          <tr>
+            <td><%=train.getID()%></td>
+            <td><%=train.getBegin_pos()%></td>
+            <td>
+              <% SimpleDateFormat begin_time = new SimpleDateFormat("yyyy-MM-dd HH:mm"); %>
+              <%=begin_time.format(train.getBegin_time())%>
+            </td>
+            <td>
+              <% SimpleDateFormat end_time = new SimpleDateFormat("yyyy-MM-dd HH:mm"); %>
+              <%=end_time.format(train.getEnd_time())%>
+            </td>
+            <td><%=train.getEnd_pos()%></td>
+            <td><%=book.getSit_name()%></td>
+            <td><button type="button" onclick="returnTicket('<%=book.getID()%>')">退票</button></td>
+          </tr>
+        <% } %>
+      <% } %>
     </table>
   </div>
   <div id="user-train-last">
+    <% List<Train> trainsLast = (List<Train>) request.getAttribute("ticket-last"); %>
+    <% List<Book> booksLast = (List<Book>) request.getAttribute("book-last"); %>
     <p>历史行程</p><hr>
     <table>
       <tr>
@@ -65,7 +97,30 @@
         <th>出发时间</th>
         <th>到达时间</th>
         <th>到达站</th>
+        <th>坐席</th>
+        <th>操作</th>
       </tr>
+      <% if (trainsLast != null) { %>
+        <% for(int i = 0; i < trainsLast.size(); i++) { %>
+          <% Train train = trainsLast.get(i); %>
+          <% Book book = booksLast.get(i); %>
+          <tr>
+            <td><%=train.getID()%></td>
+            <td><%=train.getBegin_pos()%></td>
+            <td>
+              <% SimpleDateFormat begin_time = new SimpleDateFormat("yyyy-MM-dd HH:mm"); %>
+              <%=begin_time.format(train.getBegin_time())%>
+            </td>
+            <td>
+              <% SimpleDateFormat end_time = new SimpleDateFormat("yyyy-MM-dd HH:mm"); %>
+              <%=end_time.format(train.getEnd_time())%>
+            </td>
+            <td><%=train.getEnd_pos()%></td>
+            <td><%=book.getSit_name()%></td>
+            <td><button type="button" onclick="deleteTicket('<%=book.getID()%>')">删除</button></td>
+          </tr>
+        <% } %>
+      <% } %>
     </table>
   </div>
 </body>

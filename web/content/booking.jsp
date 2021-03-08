@@ -3,7 +3,8 @@
 <%@ page import="com.demo.ov.Train" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="javax.xml.crypto.Data" %>
-<%@ page import="java.util.Date" %><%--
+<%@ page import="java.util.Date" %>
+<%@ page import="com.demo.ov.Coach" %><%--
   Created by IntelliJ IDEA.
   User: SvipVM
   Date: 2021/3/3
@@ -84,6 +85,7 @@
   <hr/>
   <div id="result-box">
     <% List<Train> trains = (List<Train>) session.getAttribute("trains"); %>
+    <% List<List<Coach>> coaches = (List<List<Coach>>) session.getAttribute("coaches"); %>
     <form action="UpdateTicketServlet" method="post">
       <table id="result-table">
         <tr>
@@ -93,14 +95,15 @@
           <th>出发时间</th>
           <th>到达时间</th>
           <th>到达站</th>
-          <th>高级位</th>
-          <th>中级位</th>
-          <th>常规位</th>
+          <th>坐席一</th>
+          <th>坐席二</th>
+          <th>坐席三</th>
           <th>操作</th>
         </tr>
         <% if (trains != null) { %>
           <% for(int i = 0; i < trains.size(); i++) { %>
             <% Train train = trains.get(i); %>
+            <% List<Coach> coach = coaches.get(i); %>
             <tr>
               <td><%=train.getID()%></td>
               <td><%=train.getKind()%></td>
@@ -116,18 +119,14 @@
                 <%=end_time.format(train.getEnd_time())%>
               </td>
               <td><%=train.getEnd_pos()%></td>
-              <td><label>
-                <input type="radio" name="sit-<%=i%>" value="super">
-                剩余 <%=train.getSuper_s()%> 位<br/><%=train.getSuper_p()%> RMB/位
-              </label></td>
-              <td><label>
-                <input type="radio" name="sit-<%=i%>" value="first">
-                剩余 <%=train.getFirst_s()%> 位<br/><%=train.getFirst_p()%> RMB/位
-              </label></td>
-              <td><label>
-                <input type="radio" name="sit-<%=i%>" value="second">
-                剩余 <%=train.getSecond_s()%> 位<br/><%=train.getSecond_p()%> RMB/位
-              </label></td>
+              <% for(int j = 0; j < coach.size(); j++) { %>
+                <% Coach value = coach.get(j); %>
+                <td><label>
+                  <input type="radio" name="sit" value="<%=i%>-<%=j%>">
+                  <%=value.getSit_name()%> 余 <%=value.getSit_total()%> 位
+                  <br/>每位 <%=value.getSit_price()%> RMB
+                </label></td>
+              <% } %>
               <td><input type="submit" value="预定"></td>
             </tr>
           <% } %>

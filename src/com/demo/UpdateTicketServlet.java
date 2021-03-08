@@ -1,7 +1,9 @@
 package com.demo;
 
 import com.demo.factory.ServiceFactory;
+import com.demo.ov.Coach;
 import com.demo.ov.Train;
+import com.demo.ov.User;
 import com.demo.service.UserService;
 
 import javax.servlet.ServletException;
@@ -18,21 +20,29 @@ public class UpdateTicketServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
-        List<Train> trains = (List<Train>) session.getAttribute("trains");
-
-        if(trains == null) return;
-        int index = 0;
-        Train train = trains.get(index);
-        while(train == null && index + 1 < trains.size()) {
-            train = trains.get(++index);
-        }
-
         UserService userService = ServiceFactory.getUserServiceImpl();
-        assert train != null;
-        train = userService.getTrainByID(train.getID());
-        request.setAttribute("buy-train", train);
+        User user = (User) session.getAttribute("user");
 
-        request.getRequestDispatcher("buyying.jsp").forward(request, response);
+        if(user != null && userService.login(user.getAccount(), user.getPassword())) {
+            String sitName = (String) request.getParameter("sit");
+            List<Train> trains = (List<Train>) session.getAttribute("trains");
+            List<List<Coach>> coaches = (List<List<Coach>>) session.getAttribute("coaches");
+
+            int index = sitName.indexOf("-", 0);
+            int x = Integer.parseInt(sitName.substring(0, index));
+            int y = Integer.parseInt(sitName.substring(index + 1));
+
+//          assert train != null;
+            Train train = trains.get(x);
+            session.setAttribute("buy-train", train);
+            List<Coach> coach = (List<Coach>) userService.findCoachByID(train.getID());
+            session.setAttribute("buy-coach", coach.get(y));
+
+            request.getRequestDispatcher("buyying.jsp").forward(request, response);
+        } else {
+            request.setAttribute("user-message", "请登录后购票！");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

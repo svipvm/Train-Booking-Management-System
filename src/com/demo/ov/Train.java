@@ -5,12 +5,6 @@ import java.util.Date;
 
 public class Train {
     private String ID;
-    private int super_s;
-    private float super_p;
-    private int first_s;
-    private float first_p;
-    private int second_s;
-    private float second_p;
     private String kind;
     private String begin_pos;
     private String end_pos;
@@ -23,54 +17,6 @@ public class Train {
 
     public void setID(String ID) {
         this.ID = ID;
-    }
-
-    public int getSuper_s() {
-        return super_s;
-    }
-
-    public void setSuper_s(int super_s) {
-        this.super_s = super_s;
-    }
-
-    public float getSuper_p() {
-        return super_p;
-    }
-
-    public void setSuper_p(float super_p) {
-        this.super_p = super_p;
-    }
-
-    public int getFirst_s() {
-        return first_s;
-    }
-
-    public void setFirst_s(int first_s) {
-        this.first_s = first_s;
-    }
-
-    public float getFirst_p() {
-        return first_p;
-    }
-
-    public void setFirst_p(float first_p) {
-        this.first_p = first_p;
-    }
-
-    public int getSecond_s() {
-        return second_s;
-    }
-
-    public void setSecond_s(int second_s) {
-        this.second_s = second_s;
-    }
-
-    public float getSecond_p() {
-        return second_p;
-    }
-
-    public void setSecond_p(float second_p) {
-        this.second_p = second_p;
     }
 
     public String getKind() {
