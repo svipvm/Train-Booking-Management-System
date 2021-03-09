@@ -1,4 +1,10 @@
-
+body {
+    height: 99%;
+    width: 99%;
+    /*background-color: blue;*/
+    background: url("/images/index-bg.jpg") no-repeat center;
+    overflow: hidden;
+}
 iframe {
     width: 100%;
     height: 100%;
@@ -8,9 +14,53 @@ iframe {
 #index-head {
     width: 100%;
     height: 12%;
-    margin: 0 auto 0 auto;
-    border: 1px solid black;
+    margin: 0 auto;
+    /*position: relative;*/
+    /*border: 1px solid black;*/
     background-color: white;
+    opacity: 0.9;
+    overflow: hidden;
+}
+#index-head span {
+    height: 12%;
+}
+#index-head-image {
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 2%;
+}
+#index-head-call {
+    position: absolute;
+    margin-top: 1px;
+    margin-left: 90%;
+}
+#index-head-num {
+    position: absolute;
+    margin-top: 42px;
+    margin-left: 80%;
+    font-size: 20px;
+    font-family: 微软雅黑, serif;
+    font-weight: bold;
+}
+#index-head-hello {
+    position: absolute;
+    margin-top: 40px;
+    margin-left: 38%;
+    font-size: 24px;
+    font-family: 微软雅黑, serif;
+    font-weight: bold;
+}
+#index-head-text {
+    position: absolute;
+    margin-top: 0.5%;
+    margin-left: 8%;
+    font-size: 24px;
+    font-family: 微软雅黑, serif;
+    font-weight: bold;
+}
+img {
+    /*width: 100px;*/
+    height: 100%;
 }
 #index-box {
     height: 83%;
@@ -18,6 +68,7 @@ iframe {
     margin: 10px auto;
     border-radius: 5px;
     overflow: hidden;
+    /*opacity: 0.9;*/
     position: relative;
     border: 1px solid black;
     background-color: white;
@@ -25,17 +76,22 @@ iframe {
 #index-foot {
     width: 100%;
     height: 5%;
+    opacity: 0.9;
     margin: 0 auto 0 auto;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
+    text-align: center;
+    line-height: 30px;
     background-color: white;
 }
 
 .menu {
-    width: 15%;
-    height: 15%;
-    margin-top: 5%;
-    border: 1px solid black;
-    background-color: blueviolet;
+    width: 150px;
+    height: 150px;
+    margin-top: 1%;
+    margin-left: 2%;
+    border-radius: 50%;
+    border: 1px solid dodgerblue;
+    background-color: darkorange;
 }
 #index-content {
     position: absolute;
@@ -43,7 +99,7 @@ iframe {
     left: 16%;
     width: 83%;
     height: 98%;
-    border: 1px solid black;
+    border: 1px solid dodgerblue;
     /*background-color: blue;*/
 }
 

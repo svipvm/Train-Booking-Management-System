@@ -14,24 +14,28 @@
 </head>
 <body>
   <div id="user-login">
-    <h3>登录</h3>
+    <h3>&emsp;请登录账号</h3>
     <hr>
     <form action="UserLoginServlet" method="post">
       <table id="user-login-table">
         <tr>
           <td>账号：</td>
-          <td><input type="text" name="account"></td>
+          <td><input class="input-text" type="text" name="account"></td>
         </tr>
         <tr>
           <td>密码：</td>
-          <td><input type="password" name="password"></td>
+          <td><input class="input-text" type="password" name="password"></td>
         </tr>
         <tr>
-          <td colspan="2"><input type="submit" value="登录"></td>
+          <% String message = (String) request.getAttribute("user-message"); %>
+          <% message = (message == null ? "" : message); %>
+          <div id="user-message"><%=message%></div>
+          <td colspan="2"><button type="submit" id="user-button">登录</button></td>
+          <div id="register"><a href="#">注册账号</a></div>
         </tr>
       </table>
     </form>
-    <p><%=request.getAttribute("user-message")%></p>
+<%--    <p><%=request.getAttribute("user-message")%></p>--%>
   </div>
 </body>
 </html>

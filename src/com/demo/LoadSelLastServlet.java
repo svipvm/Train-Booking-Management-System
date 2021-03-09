@@ -28,6 +28,7 @@ public class LoadSelLastServlet extends HttpServlet {
         Book book = userService.findBookByID(ID);
         Coach coach = userService.findCoachByIDAndSitName(book.getTrain_ID(), book.getSit_name());
 
+//        System.out.println(coach.getID());
 //        Train train = (Train) session.getAttribute("buy-train");
 //        session.setAttribute("");
         session.setAttribute("delete-coach", coach);

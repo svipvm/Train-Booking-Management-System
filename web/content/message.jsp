@@ -16,7 +16,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link type="text/css" rel="stylesheet" href="../css/message.css">
   <script type="text/javascript" src="../js/bt_jump.js"></script>
+  <script type="text/javascript" src="../js/fun.js"></script>
   <title>Message</title>
+  <script type="text/javascript">
+      window.onload=function(){
+          altRows('book-table-1');
+          altRows('book-table-2');
+      }
+  </script>
 </head>
 <body>
   <jsp:include page="/content/LoadInformServlet"></jsp:include>
@@ -43,15 +50,15 @@
           <td><%=dateTime.format(user.getLast_login())%></td>
         </tr>
         <tr>
-          <td><button>修改信息</button></td>
-          <td><button>登出账号</button></td>
+          <td><button type="button" onclick="">修改信息</button></td>
+          <td><button type="button" onclick="reUserLogin()">登出账号</button></td>
         </tr>
       </table>
     </div>
   </div>
   <div id="user-train-now">
-    <p>未来行程</p><hr>
-    <table>
+    <h3>&emsp;未来行程</h3><hr>
+    <table class="book-table" id="book-table-1">
       <% List<Train> trainsNow = (List<Train>) request.getAttribute("ticket-now"); %>
       <% List<Book> booksNow = (List<Book>) request.getAttribute("book-now"); %>
       <tr>
@@ -80,7 +87,7 @@
             </td>
             <td><%=train.getEnd_pos()%></td>
             <td><%=book.getSit_name()%></td>
-            <td><button type="button" onclick="returnTicket('<%=book.getID()%>')">退票</button></td>
+            <td><button type="button" class="book-button" onclick="returnTicket('<%=book.getID()%>')">退票</button></td>
           </tr>
         <% } %>
       <% } %>
@@ -89,8 +96,8 @@
   <div id="user-train-last">
     <% List<Train> trainsLast = (List<Train>) request.getAttribute("ticket-last"); %>
     <% List<Book> booksLast = (List<Book>) request.getAttribute("book-last"); %>
-    <p>历史行程</p><hr>
-    <table>
+    <h3>&emsp;历史行程</h3><hr>
+    <table class="book-table" id="book-table-2">
       <tr>
         <th>车次</th>
         <th>出发站</th>
@@ -117,7 +124,7 @@
             </td>
             <td><%=train.getEnd_pos()%></td>
             <td><%=book.getSit_name()%></td>
-            <td><button type="button" onclick="deleteTicket('<%=book.getID()%>')">删除</button></td>
+            <td><button type="button" class="book-button" onclick="deleteTicket('<%=book.getID()%>')">删除</button></td>
           </tr>
         <% } %>
       <% } %>

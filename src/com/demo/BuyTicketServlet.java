@@ -36,7 +36,7 @@ public class BuyTicketServlet extends HttpServlet {
         } else if(flag == 2){
             request.setAttribute("buy-message", "您已购买过该列车车票！");
         }
-        request.getRequestDispatcher("buyying.jsp").forward(request, response);
+        request.getRequestDispatcher("bTicket.jsp").forward(request, response);
 
     }
 

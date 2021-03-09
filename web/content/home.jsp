@@ -17,7 +17,7 @@
   <script>
       window.onload = function(){
           var images = document.getElementsByTagName('img');
-          var pos = 0, len = images.length;
+          var pos = 0, len = 3;
           setInterval(function(){
               images[pos].style.display = 'none';
               pos = (pos + 1) % len;
@@ -28,18 +28,18 @@
 </head>
 <body>
   <div id="banner">
-    <img src="../images/bg1.jpg"/>
-    <img src="../images/bg2.jpg"/>
-    <img src="../images/bg3.jpg"/>
+    <img src="../images/home-bg1.jpg"/>
+    <img src="../images/home-bg2.jpg"/>
+    <img src="../images/home-bg3.jpg"/>
   </div>
   <div id="main-box">
-    <h3>单程票查询</h3>
+    <h3>&emsp;单程票查询</h3>
     <hr/>
     <form action="QueryTrainServlet" method="post">
       <table>
         <% City citySet = new City(); %>
         <tr>
-          <td>出发地</td>
+          <td>出发地：</td>
           <td><select class="home-sel begin-sel" name="begin-pos">
             <% for(String city : citySet.cities) { %>
               <option value="<%=city%>"><%=city%></option>
@@ -47,7 +47,7 @@
           </select></td>
         </tr>
         <tr>
-          <td>到达地</td>
+          <td>到达地：</td>
           <td><select class="home-sel end-sel" name="end-pos">
             <% for(String city : citySet.cities) { %>
             <option value="<%=city%>"><%=city%></option>
@@ -55,7 +55,7 @@
           </select></td>
         </tr>
         <tr>
-          <td>出发日期</td>
+          <td>出发日期：</td>
           <%
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             Date date = new Date(System.currentTimeMillis());
@@ -70,7 +70,14 @@
     </form>
   </div>
   <div id="icon-set">
-
+    <div id="home-foot-message">线&ensp;<br/>下&ensp;<br/>服&ensp;<br/>务&ensp;</div>
+    <div class="home-foot-icon icon1"><img src="../images/subscribe.png"></div>
+    <div class="home-foot-icon icon2"><img src="../images/goods.png"></div>
+    <div class="home-foot-icon icon3"><img src="../images/car.png"></div>
+    <div class="home-foot-icon icon4"><img src="../images/check.png"></div>
+    <div class="home-foot-icon icon5"><img src="../images/goods.png"></div>
+    <div class="home-foot-icon icon6"><img src="../images/build.png"></div>
+    <div class="home-foot-icon icon7"><img src="../images/feedback.png"></div>
   </div>
 </body>
 </html>

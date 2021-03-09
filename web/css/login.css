@@ -2,20 +2,57 @@ body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    background: url("../images/login-bg.jpg") no-repeat;
+    background-size: cover;
 }
 
 #user-login {
     height: 50%;
     width: 40%;
     margin: 10% auto;
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 10px;
     border: 1px solid dodgerblue;
 }
 #user-login-table {
     margin: 4% auto;
-    width: 80%;
+    width: 75%;
     height: 60%;
 }
 #user-login-table td {
     text-align: center;
     border: 1px solid dodgerblue;
+}
+#user-message {
+    position: absolute;
+    height: 4.5%;
+    width: 12%;
+    font-size: 16px;
+    color: red;
+    margin-left: 6%;
+    margin-top: 11%;
+}
+#register {
+    position: absolute;
+    height: 4.5%;
+    width: 12%;
+    font-size: 16px;
+    margin-left: 25%;
+    margin-top: 11%;
+}
+.input-text {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+}
+#user-button {
+    height: 68%;
+    width: 20%;
+    border-radius: 3px;
+    background: #1E90FF;
+    cursor: pointer;
+    font-family: Microsoft YaHei, serif;
+    color: white;
+    font-size: 16px;
 }

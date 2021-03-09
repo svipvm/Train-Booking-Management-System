@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebServlet(name = "LoadTrainServlet", urlPatterns = {"/content/LoadTrainServlet"})
+@WebServlet(name = "LoadSelNowServlet", urlPatterns = {"/content/LoadSelNowServlet"})
 public class LoadSelNowServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -32,6 +32,6 @@ public class LoadSelNowServlet extends HttpServlet {
 //        session.setAttribute("");
         session.setAttribute("return-coach", coach);
 
-        response.sendRedirect("bTicket.jsp");
+        response.sendRedirect("rTicket.jsp");
     }
 }

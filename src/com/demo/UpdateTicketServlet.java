@@ -38,7 +38,7 @@ public class UpdateTicketServlet extends HttpServlet {
             List<Coach> coach = (List<Coach>) userService.findCoachByID(train.getID());
             session.setAttribute("buy-coach", coach.get(y));
 
-            request.getRequestDispatcher("buyying.jsp").forward(request, response);
+            request.getRequestDispatcher("bTicket.jsp").forward(request, response);
         } else {
             request.setAttribute("user-message", "请登录后购票！");
             request.getRequestDispatcher("login.jsp").forward(request, response);

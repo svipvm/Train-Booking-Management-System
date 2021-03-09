@@ -8,20 +8,34 @@ body {
 #select-box {
     width: 98.5%;
     height: 9%;
+    line-height: 40px;
     border: 1px solid dodgerblue;
 }
+.book-sel {
+     font-size: 20px;
+ }
 #select-ui {
-    width: 99%;
+    width: 85%;
     /*height: 2%;*/
     list-style: none;
+    margin: 0.3% auto;
     /*text-align: center;*/
-
 }
 #select-ui li {
-    margin: 0 6%;
+    margin: 0 2%;
     float: left;
 }
-
+#find-submit {
+    height: 65%;
+    width: 180%;
+    /*border-width: 0;*/
+    border-radius: 3px;
+    background: #1E90FF;
+    cursor: pointer;
+    font-family: Microsoft YaHei, serif;
+    color: white;
+    font-size: 16px;
+}
 #result-box {
     width: 98.5%;
     height: 89%;
@@ -35,11 +49,49 @@ body {
     width: 98%;
     /*height: 88%;*/
 }
+
+.book-table.altrowstable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+.book-table.altrowstable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+.book-table.altrowstable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+.ORColor{
+    background-color:#d4e3e5;
+}
+.ERColor{
+    background-color:#c3dde0;
+}
+
+
 #result-table tr {
     height: 20%;
 }
 #result-table td {
     /*height: 10%;*/
     text-align: center;
-    border: 1px solid black;
+    border: none;
+}
+
+.book-button {
+    border-radius: 3px;
+    background: #1E90FF;
+    cursor: pointer;
+    font-family: Microsoft YaHei, serif;
+    color: white;
+    font-size: 16px;
 }

@@ -17,13 +17,11 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link type="text/css" rel="stylesheet" href="../css/booking.css">
   <title>Booking</title>
-  <script language="JavaScript">
-    function choiced(value) {
-      // var myFrame = parent.document.getElementsByName("frame-content")[0];
-      // myFrame.src = "content/buyying.jsp?choice=" + value;
-      <%--alert(<% request.setAttribute("choice", value); %>)--%>
-<%--        <% request.setAttribute("choice", value); %>--%>
-    }
+  <script type="text/javascript" src="../js/fun.js"></script>
+  <script type="text/javascript">
+      window.onload=function(){
+          altRows('result-table');
+      }
   </script>
 </head>
 <body>
@@ -49,7 +47,7 @@
 
       <ul id="select-ui">
         <li>
-          出发地
+          出发地：
           <select class="book-sel begin-sel" name="begin-pos">
             <% for(String city : citySet.cities) { %>
               <% if(flag && city.equals(beginPos)) { %>
@@ -61,7 +59,7 @@
           </select>
         </li>
         <li>
-          到达地
+          到达地：
           <select class="book-sel end-sel" name="end-pos">
             <% for(String city : citySet.cities) { %>
               <% if(flag && city.equals(endPos)) { %>
@@ -73,11 +71,11 @@
           </select>
         </li>
         <li>
-          出发日期
+          出发日期：
           <input type="date" class="book-sel date-sel" name="date-sel" value="<%=dateStr%>">
         </li>
         <li>
-          <input type="submit" id="fun-submit">
+          <button type="submit" id="find-submit">查询</button>
         </li>
       </ul>
     </form>
@@ -122,12 +120,12 @@
               <% for(int j = 0; j < coach.size(); j++) { %>
                 <% Coach value = coach.get(j); %>
                 <td><label>
-                  <input type="radio" name="sit" value="<%=i%>-<%=j%>">
+                  <input type="radio" name="sit" value="<%=i%>-<%=j%>" <%=(i+j==0) ? "checked":""%>>
                   <%=value.getSit_name()%> 余 <%=value.getSit_total()%> 位
                   <br/>每位 <%=value.getSit_price()%> RMB
                 </label></td>
               <% } %>
-              <td><input type="submit" value="预定"></td>
+              <td><button type="submit" class="book-button">预定</button></td>
             </tr>
           <% } %>
         <% } %>

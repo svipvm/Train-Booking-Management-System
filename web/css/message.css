@@ -2,15 +2,19 @@ body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    background: url("../images/message-bg.jpg") no-repeat;
 }
 
 #user-box {
     margin-top: 10%;
     margin-left: 7%;
     width: 25%;
-    height: 50%;
+    height: 45%;
     border: 1px solid dodgerblue;
     overflow: hidden;
+    background-color: white;
+    border-radius: 10px;
+    opacity: 0.9;
 }
 #user-image img {
     height: 75px;
@@ -27,19 +31,31 @@ body {
     /*top: 10%;*/
     width: 100%;
     height: 68%;
-    margin: 1% auto;
+    margin-top: 4%;
+}
+#user-inform button {
+    border-radius: 3px;
+    background: #1E90FF;
+    cursor: pointer;
+    font-family: Microsoft YaHei, serif;
+    color: white;
+    font-size: 16px;
 }
 #user-inform table {
-    width: 100%;
+    margin: 0 auto;
+    width: 80%;
     height: 100%;
 }
 #user-inform table td {
     text-align: center;
-    border: 1px solid dodgerblue;
+    /*border: 1px solid dodgerblue;*/
 }
 
 #user-train-now {
     position: absolute;
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 10px;
     left: 40%;
     top: 5%;
     width: 55%;
@@ -52,7 +68,7 @@ body {
     /*height: 100%;*/
 }
 #user-train-now table tr {
-    height: 20%;
+    line-height: 35px;
 }
 #user-train-now table td {
     text-align: center;
@@ -63,6 +79,9 @@ body {
     top: 53%;
     width: 55%;
     height: 42%;
+    background-color: white;
+    opacity: 0.9;
+    border-radius: 10px;
     border: 1px solid dodgerblue;
     overflow: auto;
 }
@@ -71,8 +90,46 @@ body {
     /*height: 100%;*/
 }
 #user-train-last table tr {
-    height: 20%;
+    /*height: 30%;*/
+    line-height: 35px;
 }
 #user-train-last table td {
     text-align: center;
+}
+
+
+.book-table.altrowstable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+.book-table.altrowstable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+.book-table.altrowstable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+.ORColor{
+    background-color:#d4e3e5;
+}
+.ERColor{
+    background-color:#c3dde0;
+}
+
+.book-button {
+    border-radius: 3px;
+    background: #1E90FF;
+    cursor: pointer;
+    font-family: Microsoft YaHei, serif;
+    color: white;
+    font-size: 16px;
 }
