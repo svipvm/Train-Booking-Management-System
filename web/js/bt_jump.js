@@ -12,3 +12,8 @@ function reUserLogin() {
     var myFrame = parent.document.getElementsByName('frame-content')[0];
     myFrame.src = "content/ReLoginServlet";
 }
+
+function modifyUser() {
+    var myFrame = parent.document.getElementsByName('frame-content')[0];
+    myFrame.src = "content/modify.jsp";
+}

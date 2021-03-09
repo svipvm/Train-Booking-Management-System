@@ -10,6 +10,7 @@ import com.demo.service.UserService;
 import com.demo.util.DBConnection;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
@@ -88,6 +89,43 @@ public class UserServiceImpl implements UserService {
             Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, e);
         }
         return flag;
+    }
+
+    @Override
+    public boolean equalUserAccount(String account) {
+        Connection conn = dbc.getConnection();
+        UserDAO userDAO = DAOFactory.getUserDAOImpl(conn);
+        User user = null;
+        try {
+            user = userDAO.selectUserByAccount(account);
+        } catch (Exception e) {
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return user == null;
+    }
+
+    @Override
+    public boolean addUser(User user) {
+        Connection conn = dbc.getConnection();
+        UserDAO userDAO = DAOFactory.getUserDAOImpl(conn);
+        boolean flag = false;
+        try {
+            flag = userDAO.insertUser(user);
+        } catch (Exception e) {
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return flag;
+    }
+
+    @Override
+    public void modifyInform(String account, String colName, String value) {
+        Connection conn = dbc.getConnection();
+        UserDAO userDAO = DAOFactory.getUserDAOImpl(conn);
+        try {
+            userDAO.updateUserByColVlaue(account, colName, value);
+        } catch (Exception e) {
+            Logger.getLogger(UserServiceImpl.class.getName()).log(Level.SEVERE, null, e);
+        }
     }
 
     @Override

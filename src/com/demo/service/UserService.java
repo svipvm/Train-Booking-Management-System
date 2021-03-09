@@ -26,4 +26,7 @@ public interface UserService {
     public abstract Coach findCoachByIDAndSitName(String train_id, String sit_name);
     public abstract int subBook(String account, String id, String sit_name);
     public abstract boolean addTicketNumber(String id, int grade);
+    public abstract boolean equalUserAccount(String account);
+    public abstract boolean addUser(User user);
+    public abstract void modifyInform(String account, String colName, String value);
 }

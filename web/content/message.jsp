@@ -50,7 +50,7 @@
           <td><%=dateTime.format(user.getLast_login())%></td>
         </tr>
         <tr>
-          <td><button type="button" onclick="">修改信息</button></td>
+          <td><button type="button" onclick="modifyUser()">修改信息</button></td>
           <td><button type="button" onclick="reUserLogin()">登出账号</button></td>
         </tr>
       </table>

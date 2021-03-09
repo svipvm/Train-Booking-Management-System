@@ -97,6 +97,32 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
+    public boolean insertUser(User user) throws SQLException {
+        PreparedStatement psmt = null;
+//        ResultSet rsts = null;
+        String sql = "insert into user values(?, ?, ?, ?, ?, ?, now(), now())";
+        psmt = conn.prepareStatement(sql);
+        psmt.setString(1, user.getAccount());
+        psmt.setString(2, user.getName());
+        psmt.setString(3, user.getPassword());
+        psmt.setString(4, user.getSex());
+        psmt.setString(5, user.getID_card());
+        psmt.setString(6, user.getPhone_number());
+        return psmt.executeUpdate() != 0;
+    }
+
+    @Override
+    public void updateUserByColVlaue(String account, String colName, String value) throws SQLException {
+        PreparedStatement psmt = null;
+        String sql = "update user set " + colName + "=? where account=?";
+        psmt = conn.prepareStatement(sql);
+        psmt.setString(1, value);
+        psmt.setString(2, account);
+        int flag = psmt.executeUpdate();
+        return;
+    }
+
+    @Override
     public Book selectBookByID(String id) throws SQLException {
         Book book = new Book();
         PreparedStatement psmt = null;

@@ -25,4 +25,6 @@ public interface UserDAO {
     public abstract Coach selectCoachByIDAndSitName(String train_id, String sit_name) throws SQLException;
     public abstract boolean dropBook(String account, String id, String sit_name) throws SQLException;
     public abstract boolean updateAddSitTotalByTrainID(String id, int grade) throws SQLException;
+    public abstract boolean insertUser(User user) throws SQLException;
+    public abstract void updateUserByColVlaue(String account, String colName, String value) throws SQLException;
 }
